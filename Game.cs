@@ -9,21 +9,15 @@ namespace RockPaperScissorsLizardSpock
     public class Game
     {
         //member variables (HAS A)
-
-
-
-        public string player1;
-        public string player2;
-        public int randomRoll;
+        int pointsToWin;
         public string player1Choice;
         public string player2Choice;
-        Player1 player1Class = new Player1();
-        Player2 player2Class = new Player2();
-        AI computer = new AI();
+
+        
         //constructor (SPAWNER)
         public Game()
         {
-
+            pointsToWin = 3;
         }
 
 
@@ -48,23 +42,35 @@ namespace RockPaperScissorsLizardSpock
         }
 
 
+
         public void SingleGame()
         {
-            while (player1Class.score < 3 && player2Class.score < 3)
+            Player1 player1Class = new Player1();
+            Player2 player2Class = new Player2();
+            
+           
+
+            while (player1Class.score < pointsToWin && player2Class.score < pointsToWin)
             {
-                player1Choice = player1Class.GetPlayerChoice();
-                if (player2Class.name != "computer")
+               
+
+                if (player2Class.name == "computer")
                 {
-                    player2Choice = player2Class.GetPlayerChoice();
+                    ArtificialIntelligencePlayer computer = new ArtificialIntelligencePlayer();
+                    player1Choice = player1Class.GetPlayerChoice();
+                    player2Choice = computer.GetPlayerChoice();
                 }
                 else
                 {
-                    player2Choice = computer.GetPlayerChoice();
+                    player1Choice = player1Class.GetPlayerChoice();
+                    player2Choice = player2Class.GetPlayerChoice();
                 }
+
+                
 
                 if (player1Choice == player2Choice)
                 {
-                    Console.WriteLine("Tie. No points.");
+                    GiveMessage("Tie. No points."); 
                 }
                 else if (player1Choice == "rock" && player2Choice != "spock" && player2Choice != "paper")
                 {
@@ -107,6 +113,22 @@ namespace RockPaperScissorsLizardSpock
             {
                 GiveMessage(player2Class.name + ", you win!");
             }
+
+        }
+
+        public void LoopGame ()
+        {
+
+            string input = "yes";
+            while (input=="yes")
+                {
+                    SingleGame();
+                    input = GetStringInput("Play again? Type yes to play again.");
+                    if (input == "yes")
+                    {
+                    continue;
+                    }
+                }
 
         }
 

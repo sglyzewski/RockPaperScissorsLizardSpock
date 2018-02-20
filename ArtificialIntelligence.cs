@@ -6,20 +6,21 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissorsLizardSpock
 {
-    class AI : Player2
+    class ArtificialIntelligencePlayer : MotherPlayer
     { //member variables (HAS A)
 
         //constructor (SPAWNER)
-        public AI() {
+        public ArtificialIntelligencePlayer() {
             
             score = 0;
+            name = GetPlayerName();
         }
 
         //member methods (CAN DO)
         public static readonly Random getRandom = new Random();
         public static int GetRandomNumber(int min, int max)
         {
-            lock (getRandom) // synchronize
+            lock (getRandom) 
             {
                 return getRandom.Next(min, max);
             }
