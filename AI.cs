@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissorsLizardSpock
 {
-    class AI : Player2
+    class AI : MotherPlayer
     { //member variables (HAS A)
 
         //constructor (SPAWNER)
         public AI() {
-      
+            name = GetPlayerName();
             score = 0;
         }
 

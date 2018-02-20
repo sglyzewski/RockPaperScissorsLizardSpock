@@ -13,6 +13,7 @@ namespace RockPaperScissorsLizardSpock
         public string name;
         public string whichPlayer;
         public int score;
+        
 
         //constructor
         public MotherPlayer()
@@ -37,7 +38,7 @@ namespace RockPaperScissorsLizardSpock
         public virtual string GetPlayerChoice()
         {
             string playerChoice;
-            playerChoice = GetStringInput("What is your roll?");
+            playerChoice = GetStringInput(name + ", what is your choice? Rock, paper, scissors, lizard, or spock?");
             GiveMessage(name + " chose " + playerChoice + ".");
             return playerChoice;
         }
