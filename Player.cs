@@ -9,35 +9,24 @@ namespace RockPaperScissorsLizardSpock
     public class Player
     {
         //member variables (HAS A)
-        public string name;
-        public string choice;
-        public string currentPlayer;
-        public string otherPlayer;
-        public int currentPlayerScore;
-        public int otherPlayerScore;
+        
+      
+       
+        public int player1Score;
+        public int player2Score;
         public int randomRoll;
+        public string player1Choice;
+        public string player2Choice;
+        Player1 player1 = new Player1();
+        Player2 player2 = new Player2();
         //constructor (SPAWNER)
         public Player()
         {
-            currentPlayerScore = 0;
-            otherPlayerScore = 0;
+            player1Score = 0;
+            player2Score = 0;
         }
 
-        public static readonly Random getRandom = new Random();
-        public static int GetRandomNumber(int min, int max)
-        {
-            lock (getRandom) // synchronize
-            {
-                return getRandom.Next(min, max);
-            }
-        }
-
-        public int GetComputerRoll()
-        {
-            int roll;
-            roll = GetRandomNumber(1, 5);
-            return roll;
-        }
+      
         public void GiveMessage(string message)
         {
             Console.WriteLine(message);
@@ -61,74 +50,54 @@ namespace RockPaperScissorsLizardSpock
 
         public void playerChoice()
         {
-           while(currentPlayerScore < 3 && otherPlayerScore < 3)
+           while(player1.score < 3 && player2.score < 3)
             {
-                currentPlayer = GetPlayerRoll();
-                randomRoll = GetComputerRoll();
-                switch (randomRoll)
-                {
-                    case 1:
-                        otherPlayer = "rock";
-                        break;
-                    case 2:
-                        otherPlayer = "scissors";
-                        break;
-                    case 3:
-                        otherPlayer = "spock";
-                        break;
-                    case 4:
-                        otherPlayer = "lizard";
-                        break;
-                    case 5:
-                        otherPlayer = "paper";
-                        break;
-                    default:
-                        Console.WriteLine("Invalid Computer Selection");
-                        break;
-                }
-                if (currentPlayer == otherPlayer)
+                player1Choice = player1.GetPlayerChoice();
+                player2Choice = player2.GetPlayerChoice();
+                
+                if (player1Choice == player2Choice)
                 {
                     Console.WriteLine("Tie. No points.");
                 }
-                else if(currentPlayer == "rock" && otherPlayer != "spock" && otherPlayer!= "paper" ) {
-                    Console.WriteLine("Player 1 gets a point.");
-                    currentPlayerScore += 1;
+                else if(player1Choice == "rock" && player2Choice != "spock" && player2Choice!= "paper" ) {
+                    Console.WriteLine(player1.name + " gets a point.");
+                    player1.score += 1;
                 }
-                else if (currentPlayer == "scissors" && otherPlayer != "spock" && otherPlayer != "rock")
+                else if (player1Choice == "scissors" && player2Choice != "spock" && player2Choice != "rock")
                 {
-                    Console.WriteLine("Player 1 gets a point.");
-                    currentPlayerScore += 1;
+                    Console.WriteLine(player1.name + " gets a point.");
+                    player1.score += 1;
                 }
-                else if (currentPlayer == "spock" && otherPlayer != "paper" && otherPlayer != "lizard")
+                else if (player1Choice == "spock" && player2Choice != "paper" && player2Choice != "lizard")
                 {
-                    Console.WriteLine("Player 1 gets a point.");
-                    currentPlayerScore += 1;
+                    Console.WriteLine(player1.name + " gets a point.");
+                    player1.score += 1;
                 }
-                else if (currentPlayer == "lizard" && otherPlayer != "scissors" && otherPlayer != "rock")
+                else if (player1Choice == "lizard" && player2Choice != "scissors" && player2Choice != "rock")
                 {
-                    Console.WriteLine("Player 1 gets a point.");
-                    currentPlayerScore += 1;
+                    Console.WriteLine(player1.name + " gets a point.");
+                    player1.score += 1;
                 }
-                else if (currentPlayer == "paper" && otherPlayer != "scissors" && otherPlayer != "spock")
+                else if (player1Choice == "paper" && player2Choice != "scissors" && player2Choice != "spock")
                 {
-                    Console.WriteLine("Player 1 gets a point.");
-                    currentPlayerScore += 1;
+                    Console.WriteLine(player1.name + " gets a point.");
+                    player1.score += 1;
                 }
                 else
                 {
-                    Console.WriteLine("Player 2 gets a point");
-                    otherPlayerScore += 1;
+                    Console.WriteLine(player2.name + " gets a point.");
+                    player2.score += 1;
                 }
 
             } 
 
-           if (currentPlayerScore > otherPlayerScore)
+           if (player1.score> player2.score)
             {
-                GiveMessage("You win!");
+                GiveMessage(player1.name + ", you win!");
             }
             else 
             {
-                GiveMessage("Computer wins!");
+                GiveMessage(player2.name + ", you win!");
             }
 
         }

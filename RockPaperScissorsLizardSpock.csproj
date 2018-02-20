@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="AI.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="MotherPlayer.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Player1.cs" />
     <Compile Include="Player2.cs" />
