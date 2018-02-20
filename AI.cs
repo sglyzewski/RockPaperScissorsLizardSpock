@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissorsLizardSpock
 {
-    class AI : MotherPlayer
+    class AI : Player2
     { //member variables (HAS A)
-       
-        //constructor (SPAWNER)
 
+        //constructor (SPAWNER)
+        public AI() {
+      
+            score = 0;
+        }
 
         //member methods (CAN DO)
         public static readonly Random getRandom = new Random();
@@ -38,29 +41,43 @@ namespace RockPaperScissorsLizardSpock
             {
                 case 1:
                     choice = "rock";
+                    GiveMessage(name + " chose " + choice + ".");
                     return choice;
-                   
+
                 case 2:
                     choice = "scissors";
+                    GiveMessage(name + " chose " + choice + ".");
                     return choice;
-                  
+
                 case 3:
                     choice = "spock";
+                    GiveMessage(name + " chose " + choice + ".");
                     return choice;
                 case 4:
                     choice = "lizard";
+                    GiveMessage(name + " chose " + choice + ".");
                     return choice;
                 case 5:
                     choice = "paper";
+                    GiveMessage(name + " chose " + choice + ".");
                     return choice;
                 default:
                     Console.WriteLine("Invalid Computer Selection");
                     choice = "";
                     return choice;
-           
+
 
             }
-            
         }
+            public override string GetPlayerName()
+            {
+            string playerName;
+            GiveMessage("You are playing against the computer.");
+            playerName = "Computer";
+            return playerName;
+            }
+
     }
-}
+    }
+
+

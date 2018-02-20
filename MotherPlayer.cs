@@ -38,6 +38,7 @@ namespace RockPaperScissorsLizardSpock
         {
             string playerChoice;
             playerChoice = GetStringInput("What is your roll?");
+            GiveMessage(name + " chose " + playerChoice + ".");
             return playerChoice;
         }
 

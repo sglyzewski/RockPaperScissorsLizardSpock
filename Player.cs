@@ -19,11 +19,16 @@ namespace RockPaperScissorsLizardSpock
         public string player2Choice;
         Player1 player1 = new Player1();
         Player2 player2 = new Player2();
+        AI computer = new AI();
         //constructor (SPAWNER)
         public Player()
         {
             player1Score = 0;
             player2Score = 0;
+            if (player2.name == "computer")
+            {
+                player2 = computer;
+            }
         }
 
       

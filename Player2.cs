@@ -15,8 +15,18 @@ namespace RockPaperScissorsLizardSpock
             score = 0;
             whichPlayer = "Player 2";
             name = GetPlayerName();
+         
         }
 
+    
+
         //member methods (CAN DO)
+
+        public override string GetPlayerName()
+        {
+            string playerName;
+            playerName = GetStringInput(whichPlayer + "What is your name? Or type 'computer' to play against the computer.");
+            return playerName;
+        }
     }
 }
