@@ -13,7 +13,7 @@ namespace RockPaperScissorsLizardSpock
         public string name;
         public string whichPlayer;
         public int score;
-        
+        public List<string> choices = new List<string>(){"rock","paper","scissors","lizard","spock"};
 
         //constructor
         public MotherPlayer()
@@ -21,6 +21,16 @@ namespace RockPaperScissorsLizardSpock
             score = 0;
         }
         //member functions
+
+        public bool EvaluateChoice(string input)
+        {
+            if (choices.Contains(input))
+            { return true; }
+            else
+            {
+                return false;
+            }
+        }
         public void GiveMessage(string message)
         {
             Console.WriteLine(message);
@@ -35,11 +45,20 @@ namespace RockPaperScissorsLizardSpock
         }
 
 
+
         public virtual string GetPlayerChoice()
         {
-            string playerChoice;
-            playerChoice = GetStringInput(name + ", what is your choice? Rock, paper, scissors, lizard, or spock?");
-            GiveMessage(name + " chose " + playerChoice + ".");
+            string playerChoice = "";
+            while (EvaluateChoice(playerChoice) != true) {
+                playerChoice = GetStringInput(name + ", what is your choice? Rock, paper, scissors, lizard, or spock?");
+                if (EvaluateChoice(playerChoice) == false)
+                {
+                    GiveMessage("Invalid input.");
+                }
+                else {
+                    GiveMessage(name + " chose " + playerChoice + ".");
+                }
+            }
             return playerChoice;
         }
 
