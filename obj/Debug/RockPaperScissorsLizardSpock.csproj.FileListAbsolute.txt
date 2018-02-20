@@ -1,0 +1,7 @@
+\\Mac\Home\Desktop\Dev_Code_Camp\Day_21\RockPaperScissorsLizardSpock\RockPaperScissorsLizardSpock\bin\Debug\RockPaperScissorsLizardSpock.exe.config
+\\Mac\Home\Desktop\Dev_Code_Camp\Day_21\RockPaperScissorsLizardSpock\RockPaperScissorsLizardSpock\bin\Debug\RockPaperScissorsLizardSpock.exe
+\\Mac\Home\Desktop\Dev_Code_Camp\Day_21\RockPaperScissorsLizardSpock\RockPaperScissorsLizardSpock\bin\Debug\RockPaperScissorsLizardSpock.pdb
+\\Mac\Home\Desktop\Dev_Code_Camp\Day_21\RockPaperScissorsLizardSpock\RockPaperScissorsLizardSpock\obj\Debug\RockPaperScissorsLizardSpock.csprojResolveAssemblyReference.cache
+\\Mac\Home\Desktop\Dev_Code_Camp\Day_21\RockPaperScissorsLizardSpock\RockPaperScissorsLizardSpock\obj\Debug\RockPaperScissorsLizardSpock.csproj.CoreCompileInputs.cache
+\\Mac\Home\Desktop\Dev_Code_Camp\Day_21\RockPaperScissorsLizardSpock\RockPaperScissorsLizardSpock\obj\Debug\RockPaperScissorsLizardSpock.exe
+\\Mac\Home\Desktop\Dev_Code_Camp\Day_21\RockPaperScissorsLizardSpock\RockPaperScissorsLizardSpock\obj\Debug\RockPaperScissorsLizardSpock.pdb
