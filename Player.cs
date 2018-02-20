@@ -19,14 +19,11 @@ namespace RockPaperScissorsLizardSpock
         public string player2Choice;
         Player1 player1Class = new Player1();
         Player2 player2Class = new Player2();
+        AI computer = new AI();
         //constructor (SPAWNER)
         public Player()
         {
-            if (player2Class.name == "computer")
-            {
-                AI player2Class = new AI();
-            }
-
+           
         }
 
       
@@ -56,7 +53,14 @@ namespace RockPaperScissorsLizardSpock
            while(player1Class.score < 3 && player2Class.score < 3)
             {
                 player1Choice = player1Class.GetPlayerChoice();
-                player2Choice = player2Class.GetPlayerChoice();
+                if (player2Class.name != "computer")
+                {
+                    player2Choice = player2Class.GetPlayerChoice();
+                }
+                else
+                {
+                    player2Choice = computer.GetPlayerChoice();
+                }
                 
                 if (player1Choice == player2Choice)
                 {

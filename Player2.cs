@@ -18,8 +18,6 @@ namespace RockPaperScissorsLizardSpock
          
         }
 
-    
-
         //member methods (CAN DO)
 
         public override string GetPlayerName()
