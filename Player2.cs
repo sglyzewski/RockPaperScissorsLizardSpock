@@ -23,7 +23,7 @@ namespace RockPaperScissorsLizardSpock
         public override string GetPlayerName()
         {
             string playerName;
-            playerName = GetStringInput(whichPlayer + "What is your name? Or type 'computer' to play against the computer.");
+            playerName = GetStringInput(whichPlayer + ", what is your name? Or type 'computer' to play against the computer.");
             return playerName;
         }
     }

@@ -10,8 +10,8 @@ namespace RockPaperScissorsLizardSpock
     {
         static void Main(string[] args)
         {
-            Player player = new Player();
-            player.playerChoice();
+            Game game = new Game();
+            game.playerChoice();
             Console.ReadKey();
         }
     }

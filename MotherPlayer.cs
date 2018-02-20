@@ -62,10 +62,12 @@ namespace RockPaperScissorsLizardSpock
             return playerChoice;
         }
 
+
+
         public virtual string GetPlayerName()
         {
             string playerName;
-            playerName = GetStringInput(whichPlayer + "What is your name?");
+            playerName = GetStringInput(whichPlayer + ", what is your name?");
             return playerName;
         }
 
