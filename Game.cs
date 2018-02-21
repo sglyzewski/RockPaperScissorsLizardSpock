@@ -49,7 +49,6 @@ namespace RockPaperScissorsLizardSpock
             string player2Choice;
             Player1 player1Class = new Player1();
             Player2 player2Class = new Player2();
-            
             player1Class.name = player1Class.GetPlayerName();
             player2Class.name = player2Class.GetPlayerName();
             ArtificialIntelligencePlayer computer = new ArtificialIntelligencePlayer();
@@ -57,10 +56,9 @@ namespace RockPaperScissorsLizardSpock
             {
                 player2Class.name = computer.name;
                 computer.GetPlayerName();
-                
             }
 
-                while (player1Class.score < pointsToWin && player2Class.score < pointsToWin)
+            while (player1Class.score < pointsToWin && player2Class.score < pointsToWin)
             {
 
                 if (player2Class.name == computer.name)
@@ -75,9 +73,6 @@ namespace RockPaperScissorsLizardSpock
                     player1Choice = player1Class.GetPlayerChoice();
                     player2Choice = player2Class.GetPlayerChoice();
                 }
-
-
-
                 if (player1Choice == player2Choice)
                 {
                     GiveMessage("Tie. No points.");
@@ -112,6 +107,7 @@ namespace RockPaperScissorsLizardSpock
                     Console.WriteLine(player2Class.name + " gets a point.");
                     player2Class.score += 1;
                 }
+                ScoreLog(player1Class.name, player1Class.score, player2Class.name, player2Class.score);
 
             }
 
@@ -130,7 +126,6 @@ namespace RockPaperScissorsLizardSpock
         {
             int convertedChoice;
             switch (choice)
-
             {
                 case "rock":
                     convertedChoice = 0;
@@ -156,13 +151,14 @@ namespace RockPaperScissorsLizardSpock
         {
             GiveMessage("\nCurrent Score: \n" + playerName1 + ": " + player1Score + "\n" + playerName2 + ": " + player2Score + "\n");
         }
+
+
         public void FormulaicGame()
         {
             string player1ChoiceString;
             string player2ChoiceString;
             Player1 player1Class = new Player1();
             Player2 player2Class = new Player2();
-
             player1Class.name = player1Class.GetPlayerName();
             player2Class.name = player2Class.GetPlayerName();
             ArtificialIntelligencePlayer computer = new ArtificialIntelligencePlayer();
@@ -172,16 +168,10 @@ namespace RockPaperScissorsLizardSpock
                 computer.GetPlayerName();
 
             }
-
-
             while (player1Class.score < pointsToWin && player2Class.score < pointsToWin)
             {
-
-
                 if (player2Class.name == computer.name)
                 {
-
-
                     player1ChoiceString = player1Class.GetPlayerChoice();
                     player2ChoiceString = computer.GetPlayerChoice();
                 }
@@ -193,7 +183,6 @@ namespace RockPaperScissorsLizardSpock
                 int formula;
                 int player1Choice = ConvertChoiceStringToNum(player1ChoiceString);
                 int player2Choice = ConvertChoiceStringToNum(player2ChoiceString);
-
                 formula = (5 + player1Choice - player2Choice) % 5;
                 if (formula == 1 || formula == 3)
                 {
