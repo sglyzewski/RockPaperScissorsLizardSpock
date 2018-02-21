@@ -8,18 +8,17 @@ namespace RockPaperScissorsLizardSpock
 {
     public class Player2 : MotherPlayer
     {
-        //member variables (HAS A)
+        //member variables 
         //constructor (SPAWNER)
         public Player2()
         {
             score = 0;
             whichPlayer = "Player 2";
-            name = GetPlayerName();
+           // name = GetPlayerName();
          
         }
 
         //member methods (CAN DO)
-
         public override string GetPlayerName()
         {
             string playerName;

@@ -13,7 +13,7 @@ namespace RockPaperScissorsLizardSpock
         {
             score = 0;
             whichPlayer = "Player 1";
-            name = GetPlayerName();
+            
         }
         //member methods (CAN DO)
     }

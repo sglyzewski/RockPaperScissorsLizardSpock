@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissorsLizardSpock
 {
-    class ArtificialIntelligencePlayer : MotherPlayer
+    class ArtificialIntelligencePlayer : Player2
     { //member variables (HAS A)
 
         //constructor (SPAWNER)
         public ArtificialIntelligencePlayer() {
             
             score = 0;
-            name = GetPlayerName();
+            name = "Computer";
+        
         }
 
         //member methods (CAN DO)
