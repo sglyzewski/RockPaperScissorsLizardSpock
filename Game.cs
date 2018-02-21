@@ -153,10 +153,6 @@ namespace RockPaperScissorsLizardSpock
 
         }
 
-      
-
-        
-
         public void LoopGame()
         {
             string input = "yes";
@@ -172,9 +168,5 @@ namespace RockPaperScissorsLizardSpock
             }
             
         }
-
-
-        }
-
-
     }
+ }

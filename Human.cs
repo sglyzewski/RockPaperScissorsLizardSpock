@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissorsLizardSpock
 {
+    
     public class Human : MotherPlayer
-    {   
+    {
+        
         public Human()
         {
             score = 0;

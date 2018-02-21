@@ -14,7 +14,7 @@ namespace RockPaperScissorsLizardSpock
         public int score;
         public List<string> choices = new List<string>(){"rock","paper","scissors","lizard","spock"};
         public string whichPlayer;
-       
+
         public MotherPlayer()
         {
         }

@@ -12,7 +12,6 @@ namespace RockPaperScissorsLizardSpock
         {
             Game game = new Game();
             game.LoopGame();
-            Console.ReadKey();
         }
     }
 }
