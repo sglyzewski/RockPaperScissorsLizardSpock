@@ -124,6 +124,7 @@ namespace RockPaperScissorsLizardSpock
 
         public int ConvertChoiceStringToNum(string choice)
         {
+            choice = choice.ToLower();
             int convertedChoice;
             switch (choice)
             {
@@ -218,6 +219,7 @@ namespace RockPaperScissorsLizardSpock
                 {
                     FormulaicGame();
                     input = GetStringInput("Play again? Type yes to play again.");
+                    input = input.ToLower();
                     if (input == "yes")
                     {
                         continue;

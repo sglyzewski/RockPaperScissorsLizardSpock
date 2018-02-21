@@ -24,6 +24,7 @@ namespace RockPaperScissorsLizardSpock
 
         public bool EvaluateChoice(string input)
         {
+            input = input.ToLower();
             if (choices.Contains(input))
             { return true; }
             else
@@ -56,7 +57,7 @@ namespace RockPaperScissorsLizardSpock
                     GiveMessage("Invalid input.");
                 }
                 else {
-                    GiveMessage(name + " chose " + playerChoice + ".");
+                    GiveMessage(name + " chose " + playerChoice.ToLower() + ".");
                 }
             }
             return playerChoice;
