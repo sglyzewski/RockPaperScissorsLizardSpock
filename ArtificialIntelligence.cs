@@ -6,18 +6,14 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissorsLizardSpock
 {
-    class ArtificialIntelligencePlayer : Player2
-    { //member variables (HAS A)
-
-        //constructor (SPAWNER)
-        public ArtificialIntelligencePlayer() {
-            
+    class ArtificialIntelligencePlayer : MotherPlayer
+    {  
+        public ArtificialIntelligencePlayer()
+        {            
             score = 0;
             name = "Computer";
-        
         }
-
-        //member methods (CAN DO)
+   
         public static readonly Random getRandom = new Random();
         public static int GetRandomNumber(int min, int max)
         {
@@ -33,6 +29,12 @@ namespace RockPaperScissorsLizardSpock
             roll = GetRandomNumber(1, 5);
             return roll;
         }
+
+        public override void GiveMessage(string message)
+        {
+            Console.WriteLine(message);
+        }
+
 
         public override string GetPlayerChoice()
         {
@@ -71,15 +73,15 @@ namespace RockPaperScissorsLizardSpock
 
             }
         }
-            public override string GetPlayerName()
-            {
+        public override string GetPlayerName()
+        {
             string playerName;
             GiveMessage("You are playing against the computer.");
             playerName = "Computer";
             return playerName;
-            }
+        }
 
     }
-    }
+}
 
 

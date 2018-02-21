@@ -10,13 +10,14 @@ namespace RockPaperScissorsLizardSpock
     {
         //member variables (HAS A)
         int pointsToWin;
+        MotherPlayer player1;
+        MotherPlayer player2;        
 
-
-
-        //constructor (SPAWNER)
+        
         public Game()
         {
             pointsToWin = 3;
+            
         }
 
         //member methods (CAN DO)
@@ -34,117 +35,86 @@ namespace RockPaperScissorsLizardSpock
             return input;
         }
 
-        public string GetPlayerRoll()
+        public bool CheckForComputerPlayer2()
         {
-            string playerRoll;
-            playerRoll = GetStringInput("What is your roll?");
-            return playerRoll;
-        }
-
-
-
-        public void SingleGame()
-        {
-            string player1Choice;
-            string player2Choice;
-            Player1 player1Class = new Player1();
-            Player2 player2Class = new Player2();
-            player1Class.name = player1Class.GetPlayerName();
-            player2Class.name = player2Class.GetPlayerName();
-            ArtificialIntelligencePlayer computer = new ArtificialIntelligencePlayer();
-            if (player2Class.name == "computer")
+            string input;
+            input = GetStringInput("Will you be playing against the computer?");
+            if (input == "yes")
             {
-                player2Class.name = computer.name;
-                computer.GetPlayerName();
-            }
-
-            while (player1Class.score < pointsToWin && player2Class.score < pointsToWin)
-            {
-
-                if (player2Class.name == computer.name)
-                {
-                 
-                    player1Choice = player1Class.GetPlayerChoice();
-                    player2Choice = computer.GetPlayerChoice();
-                   
-                }
-                else
-                {
-                    player1Choice = player1Class.GetPlayerChoice();
-                    player2Choice = player2Class.GetPlayerChoice();
-                }
-                if (player1Choice == player2Choice)
-                {
-                    GiveMessage("Tie. No points.");
-                }
-                else if (player1Choice == "rock" && player2Choice != "spock" && player2Choice != "paper")
-                {
-                    Console.WriteLine(player1Class.name + " gets a point.");
-                    player1Class.score += 1;
-                }
-                else if (player1Choice == "scissors" && player2Choice != "spock" && player2Choice != "rock")
-                {
-                    Console.WriteLine(player1Class.name + " gets a point.");
-                    player1Class.score += 1;
-                }
-                else if (player1Choice == "spock" && player2Choice != "paper" && player2Choice != "lizard")
-                {
-                    Console.WriteLine(player1Class.name + " gets a point.");
-                    player1Class.score += 1;
-                }
-                else if (player1Choice == "lizard" && player2Choice != "scissors" && player2Choice != "rock")
-                {
-                    Console.WriteLine(player1Class.name + " gets a point.");
-                    player1Class.score += 1;
-                }
-                else if (player1Choice == "paper" && player2Choice != "scissors" && player2Choice != "spock")
-                {
-                    Console.WriteLine(player1Class.name + " gets a point.");
-                    player1Class.score += 1;
-                }
-                else
-                {
-                    Console.WriteLine(player2Class.name + " gets a point.");
-                    player2Class.score += 1;
-                }
-                ScoreLog(player1Class.name, player1Class.score, player2Class.name, player2Class.score);
-
-            }
-
-            if (player1Class.score > player2Class.score)
-            {
-                GiveMessage("\n\n" + player1Class.name + " is the winner!");
+                return true;
             }
             else
             {
-                GiveMessage("\n\n" + player2Class.name + " is the winner!");
+                return false;
             }
-
+            
         }
 
-        public int ConvertChoiceStringToNum(string choice)
+        public void GetPlayers()
         {
-            choice = choice.ToLower();
-            int convertedChoice;
-            switch (choice)
+            player1 = new Human();
+            player1.whichPlayer = "Player 1";
+            if (CheckForComputerPlayer2()== true)
             {
-                case "rock":
-                    convertedChoice = 0;
-                    return convertedChoice;
-                case "paper":
-                    convertedChoice = 1;
-                    return convertedChoice;
-                case "scissors":
-                    convertedChoice = 2;
-                    return convertedChoice;
-                case "spock":
-                    convertedChoice = 3;
-                    return convertedChoice;
-                case "lizard":
-                    convertedChoice = 4;
-                    return convertedChoice;
-                default:
-                    return 10;
+                
+                player2 = new ArtificialIntelligencePlayer();
+            }
+            else
+            {
+                
+                player2 = new Human();
+                player2.whichPlayer = "Player 2";
+            }
+        }
+
+        
+        public void GetPlayerNames()
+        {            
+            player1.name = player1.GetPlayerName();
+            player2.name = player2.GetPlayerName();
+        }
+
+        public void GetPlayerChoices()
+        {
+            player1.choice = player1.GetPlayerChoice();
+            player2.choice = player2.GetPlayerChoice();
+        }
+
+        public void DetermineRoundScore()
+        {
+            if (player1.choice == player2.choice)
+            {
+                GiveMessage("Tie. No points.");
+            }
+            else if (player1.choice == "rock" && player2.choice != "spock" && player2.choice != "paper")
+            {
+                GiveMessage(player1.name + " gets a point.");
+                player1.score += 1;
+            }
+            else if (player1.choice == "scissors" && player2.choice != "spock" && player2.choice != "rock")
+            {
+                GiveMessage(player1.name + " gets a point.");
+                player1.score += 1;
+            }
+            else if (player1.choice == "spock" && player2.choice != "paper" && player2.choice != "lizard")
+            {
+                GiveMessage(player1.name + " gets a point.");
+                player1.score += 1;
+            }
+            else if (player1.choice == "lizard" && player2.choice != "scissors" && player2.choice != "rock")
+            {
+                GiveMessage(player1.name + " gets a point.");
+                player1.score += 1;
+            }
+            else if (player1.choice == "paper" && player2.choice != "scissors" && player2.choice != "spock")
+            {
+                GiveMessage(player1.name + " gets a point.");
+                player1.score += 1;
+            }
+            else
+            {
+                GiveMessage(player2.name + " gets a point.");
+                player2.score += 1;
             }
         }
 
@@ -153,79 +123,55 @@ namespace RockPaperScissorsLizardSpock
             GiveMessage("\nCurrent Score: \n" + playerName1 + ": " + player1Score + "\n" + playerName2 + ": " + player2Score + "\n");
         }
 
-
-        public void FormulaicGame()
+        public void DetermineGameWinner()
         {
-            string player1ChoiceString;
-            string player2ChoiceString;
-            Player1 player1Class = new Player1();
-            Player2 player2Class = new Player2();
-            player1Class.name = player1Class.GetPlayerName();
-            player2Class.name = player2Class.GetPlayerName();
-            ArtificialIntelligencePlayer computer = new ArtificialIntelligencePlayer();
-            if (player2Class.name == "computer")
-            {
-                player2Class.name = computer.name;
-                computer.GetPlayerName();
 
-            }
-            while (player1Class.score < pointsToWin && player2Class.score < pointsToWin)
+            if (player1.score > player2.score)
             {
-                if (player2Class.name == computer.name)
-                {
-                    player1ChoiceString = player1Class.GetPlayerChoice();
-                    player2ChoiceString = computer.GetPlayerChoice();
-                }
-                else
-                {
-                    player1ChoiceString = player1Class.GetPlayerChoice();
-                    player2ChoiceString = player2Class.GetPlayerChoice();
-                }
-                int formula;
-                int player1Choice = ConvertChoiceStringToNum(player1ChoiceString);
-                int player2Choice = ConvertChoiceStringToNum(player2ChoiceString);
-                formula = (5 + player1Choice - player2Choice) % 5;
-                if (formula == 1 || formula == 3)
-                {
-                    player1Class.score += 1;
-                    GiveMessage(player1Class.name + " gets a point.");
-                }
-                if (formula == 2 || formula == 4)
-                {
-                    player2Class.score += 1;
-                    GiveMessage(player2Class.name + " gets a point.");
-                }
-                if (formula == 0)
-                {
-                    GiveMessage("Tie. No points");
-                }
-                ScoreLog(player1Class.name, player1Class.score, player2Class.name, player2Class.score);
-            }
-            if (player1Class.score > player2Class.score)
-            {
-                GiveMessage("\n\n" + player1Class.name + " is the winner!");
+                GiveMessage("\n\n" + player1.name + " is the winner!");
             }
             else
             {
-                GiveMessage("\n\n" + player2Class.name + " is the winner!");
+                GiveMessage("\n\n" + player2.name + " is the winner!");
             }
+
         }
 
+        public void SingleGame()
+        {
+            GetPlayers();
+            GetPlayerNames();
 
-            public void LoopGame()
+            while (player1.score < pointsToWin && player2.score < pointsToWin)
             {
-                string input = "yes";
-                while (input == "yes")
+
+                GetPlayerChoices();
+                DetermineRoundScore();
+                ScoreLog(player1.name, player1.score, player2.name, player2.score);
+            }
+            DetermineGameWinner();
+
+        }
+
+      
+
+        
+
+        public void LoopGame()
+        {
+            string input = "yes";
+            while (input == "yes")
+            {
+                SingleGame();
+                input = GetStringInput("Play again? Type yes to play again.");
+                input = input.ToLower();
+                if (input == "yes")
                 {
-                    FormulaicGame();
-                    input = GetStringInput("Play again? Type yes to play again.");
-                    input = input.ToLower();
-                    if (input == "yes")
-                    {
-                        continue;
-                    }
+                    continue;
                 }
             }
+            
+        }
 
 
         }
