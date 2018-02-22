@@ -55,7 +55,7 @@ namespace RockPaperScissorsLizardSpock
                     GiveMessage(name + " chose " + playerChoice.ToLower() + ".");
                 }
             }
-            return playerChoice;
+            return playerChoice.ToLower();
         }
 
         public override string GetPlayerName()

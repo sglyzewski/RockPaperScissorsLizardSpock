@@ -8,7 +8,7 @@ namespace RockPaperScissorsLizardSpock
 {
     public class Game
     {
-        //member variables (HAS A)
+
         int pointsToWin;
         MotherPlayer player1;
         MotherPlayer player2;        
@@ -19,8 +19,6 @@ namespace RockPaperScissorsLizardSpock
             pointsToWin = 3;
             
         }
-
-        //member methods (CAN DO)
 
         public void GiveMessage(string message)
         {
@@ -38,7 +36,7 @@ namespace RockPaperScissorsLizardSpock
         public bool CheckForComputerPlayer2()
         {
             string input;
-            input = GetStringInput("Will you be playing against the computer?");
+            input = GetStringInput("Will you be playing against the computer?").ToLower();
             if (input == "yes")
             {
                 return true;
@@ -67,7 +65,6 @@ namespace RockPaperScissorsLizardSpock
             }
         }
 
-        
         public void GetPlayerNames()
         {            
             player1.name = player1.GetPlayerName();
