@@ -35,7 +35,6 @@ namespace RockPaperScissorsLizardSpock
             Console.WriteLine(message);
         }
 
-
         public override string GetPlayerChoice()
         {
             int randomRoll;
@@ -69,10 +68,9 @@ namespace RockPaperScissorsLizardSpock
                     Console.WriteLine("Invalid Computer Selection");
                     choice = "";
                     return choice;
-
-
             }
         }
+
         public override string GetPlayerName()
         {
             string playerName;

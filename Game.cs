@@ -14,7 +14,7 @@ namespace RockPaperScissorsLizardSpock
 
         public Game()
         {
-            pointsToWin = 3;
+            pointsToWin = 2;
         }
 
         public void GiveMessage(string message)
@@ -60,7 +60,15 @@ namespace RockPaperScissorsLizardSpock
                 player2.whichPlayer = "Player 2";
             }
         }
-
+        public void DisplayRules()
+        {
+            GiveMessage("The game is best of three.\n ");
+            GiveMessage("'rock' beats: lizard, scissors");
+            GiveMessage("'scissors' beats: paper, lizard");
+            GiveMessage("'spock' beats: scissors, paper");
+            GiveMessage("'lizard' beats: spock, paper");
+            GiveMessage("'paper' beats: rock, spock\n");
+        }
         public void GetPlayerNames()
         {            
             player1.name = player1.GetPlayerName();
@@ -134,7 +142,7 @@ namespace RockPaperScissorsLizardSpock
         {
             GetPlayers();
             GetPlayerNames();
-
+            DisplayRules();
             while (player1.score < pointsToWin && player2.score < pointsToWin)
             {
 
