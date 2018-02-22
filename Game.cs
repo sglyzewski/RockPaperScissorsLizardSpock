@@ -8,16 +8,13 @@ namespace RockPaperScissorsLizardSpock
 {
     public class Game
     {
-
         int pointsToWin;
         MotherPlayer player1;
         MotherPlayer player2;        
 
-        
         public Game()
         {
             pointsToWin = 3;
-            
         }
 
         public void GiveMessage(string message)
@@ -45,7 +42,6 @@ namespace RockPaperScissorsLizardSpock
             {
                 return false;
             }
-            
         }
 
         public void GetPlayers()
